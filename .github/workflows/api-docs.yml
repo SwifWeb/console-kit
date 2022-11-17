@@ -2,7 +2,7 @@ name: deploy-api-docs
 on:
    push:
      branches:
-       - master
+       - main
 
 jobs:
   deploy:
@@ -15,4 +15,5 @@ jobs:
         host: vapor.codes
         username: vapor
         key: ${{ secrets.VAPOR_CODES_SSH_KEY }}
+        command_timeout: 20m
         script: ./github-actions/deploy-api-docs.sh
